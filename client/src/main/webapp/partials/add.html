@@ -1,0 +1,26 @@
+<div class="modal fade bs-example-modal-sm" id="addModal"  tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Account</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div id="IBanForm" class="form-group">
+                        <label for="iBan">IBan:</label>
+                        <input type="text" ng-model="account.iBan" class="form-control" id="iBan">
+                    </div>
+                    <div id="BikForm" class="form-group">
+                        <label for="iBan">Bik:</label>
+                        <input type="text" ng-model="account.bik" class="form-control" id="Bik">
+                    </div>
+                </form>
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="$parent.save()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

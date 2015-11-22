@@ -1,0 +1,7 @@
+.gridAccountStyle {
+    border: 2px solid rgb(212, 212, 212);
+    width: 600px;
+    height: 350px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

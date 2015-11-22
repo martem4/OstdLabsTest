@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="utf-8">
+    <title>Accounts Page</title>
+
+    <link rel="stylesheet" href="scripts/angular-grid/ng-grid.css"/>
+    <link rel="stylesheet" href="scripts/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/app.css"/>
+
+    <script src="scripts/jquery/dist/jquery.min.js"></script>
+    <script src="scripts/angular/angular.js"></script>
+    <script src="scripts/angular-grid/ng-grid-2.0.14.min.js"></script>
+    <script src="scripts/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="scripts/main.js"></script>
+</head>
+    <body ng-controller="accountsCtrl">
+    <br>
+    <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-4 col-sm-offset-3">
+                    <div class="gridAccountStyle" ng-grid="gridOptions"></div>
+                    <br>
+                    <button type="button" class="btn btn-primary col-sm-3" ng-click="add()">Add</button>
+                    <button type="button" class="btn btn-primary col-sm-3 col-sm-offset-1" ng-click="delete()">Delete</button>
+                    <button type="button" class="btn btn-primary col-sm-3 col-sm-offset-1" ng-click="send()">Send</button>
+                </div>
+            </div>
+        </div>
+
+    <div ng-include src="'partials/add.html'" ng-controller="accountsCtrl"></div>
+    </body>
+</html>

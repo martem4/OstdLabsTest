@@ -1,0 +1,14 @@
+<dataset>
+
+    <bank_account id="1" i_ban="1" bik="101406781"/>
+    <bank_account id="2" i_ban="2" bik="192496782"/>
+    <bank_account id="3" i_ban="3" bik="183466783"/>
+    <bank_account id="4" i_ban="4" bik="174476784"/>
+    <bank_account id="5" i_ban="5" bik="165466785"/>
+    <bank_account id="6" i_ban="6" bik="156456786"/>
+    <bank_account id="7" i_ban="7" bik="147446787"/>
+    <bank_account id="8" i_ban="8" bik="138436788"/>
+    <bank_account id="9" i_ban="9" bik="129426780"/>
+    <bank_account id="10" i_ban="10" bik="110451780"/>
+
+</dataset>

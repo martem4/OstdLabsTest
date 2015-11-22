@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/data/jpa
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+       <jpa:repositories base-package="com.ostdlabs.repository"/>
+
+       <context:component-scan base-package="com.ostdlabs.service"/>
+
+       <tx:annotation-driven transaction-manager="transactionManager"/>
+
+       <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+              <property name="entityManagerFactory" ref="entityManagerFactory"/>
+       </bean>
+
+       <bean id="dbInitilizer" class="com.ostdlabs.DbInitializer">
+              <constructor-arg name="dataset" value="/dataset.xml"/>
+       </bean>
+
+       <beans profile="h2_dev,default">
+              <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+                     <property name="driverClassName" value="${jdbc.driver}"/>
+                     <property name="url" value='${jdbc.url}'/>
+                     <property name="username" value="${jdbc.username}"/>
+                     <property name="password" value="${jdbc.password}"/>
+              </bean>
+
+              <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+                     <property name="dataSource" ref="dataSource"/>
+                     <property name="packagesToScan" value="com.ostdlabs.model"/>
+                     <property name="jpaVendorAdapter">
+                            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                                   <property name="database" value="${jdbc.db.type}"/>
+                                   <property name="generateDdl" value="true"/>
+                                   <property name="showSql" value="true"/>
+                            </bean>
+                     </property>
+              </bean>
+       </beans>
+</beans>
+
