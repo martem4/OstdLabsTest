@@ -180,7 +180,7 @@
                 <version>1.1</version>
             </dependency>
 
-            <!-- other -->
+            <!-- other test -->
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
